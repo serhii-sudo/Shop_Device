@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>basket</title>
+
+</head>
+<body>
+
+<a href="{% url 'home' %}"><button style="color:green">Главное меню</button></a>
+<div style="color:red">количество товаров в корзине: {{count_product_basket}}</div><br>
+<div style="color:red">Общая сумма: {{sum_all_products}}</div><br>
+
+{% for i in basket_product %}
+    {{i.product.name}}
+    {{i.product.price}}<br>
+    {{i.product.description}}<br><br>
+    <img src="{{ i.product.image.url }}" width="310" height="280">
+    <div>количество выбранного товара: {{i.quantity}}</div>
+    <form action="{% url 'del_basket' i.id  %}" method="post">
+        {% csrf_token %}
+        <button class="button" style="color:red">удалить товар</button><br><hr style="border-width:2px">
+    </form>
+{% endfor %}
+</body>
+</html>
+

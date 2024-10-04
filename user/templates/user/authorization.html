@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>authorization</title>
+
+    <link href="{% static 'vendor/css/registration.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+</head>
+<body>
+<div class="main-w3layouts wrapper">
+    <h1>Authorization</h1>
+    <div class="main-agileinfo">
+        <div class="agileits-top">
+            <form class="login-form" action="{% url 'authorization' %}" method="POST">
+                {% csrf_token %}
+
+                <div class="text email">
+                    <label for="{{ form.email.id_for_label }}"></label>
+                    {{ form.email }}
+                </div>
+
+                <div class="text">
+                    <label for="{{ form.password.id_for_label }}"></label>
+                    {{ form.password }}
+                </div>
+
+                <div class="wthree-text">
+                    <label class="anim">
+                        <input type="checkbox" class="checkbox" required="">
+                        <span>Я согласен с Условиями использования</span>
+                    </label>
+                </div>
+
+                <input type="submit" value="Login">
+
+                <a href="{% url 'password_reset' %}" class="btn">Forgot password?</a>
+            </form>
+
+
+        </div>
+    </div>
+
+    <div class="colorlibcopy-agile"></div>
+
+    <ul class="#">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>
